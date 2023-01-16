@@ -23,60 +23,61 @@
                 <button class="profile__add-button" type="button"></button>
             </section>
             <section class="elements">
-                    <div class="element">
+                    <article class="element">
                         <img class="element__image" src="./images/image-1.png" alt="Место Природы">
                         <div class="element__info">
                             <h2 class="element__caption">Карачаевск</h2>
                             <button class="element__btn-like" type="button"></button>
                         </div>
-                    </div>
-                    <div class="element">
+                    </article>
+                    <article class="element">
                         <img class="element__image" src="./images/image-2.png" alt="Место Природы">
                         <div class="element__info">
                             <h2 class="element__caption">Гора Эльбрус</h2>
                             <button class="element__btn-like" type="button"></button>
                         </div>
-                    </div>
-                    <div class="element">
+                    </article>
+                    <article class="element">
                         <img class="element__image" src="./images/image-3.png" alt="Место Природы">
                         <div class="element__info">
                             <h2 class="element__caption">Домбай</h2>
                             <button class="element__btn-like" type="button"></button>
                         </div>
-                    </div>
-                    <div class="element">
+                    </article>
+                    <article class="element">
                         <img class="element__image" src="./images/image-4.png" alt="Место Природы">
                         <div class="element__info">
                             <h2 class="element__caption">Гора Эльбрус</h2>
                             <button class="element__btn-like" type="button"></button>
                         </div>
-                    </div>
-                    <div class="element">
+                    </article>
+                    <article class="element">
                         <img class="element__image" src="./images/image-5.png" alt="Место Природы">
                         <div class="element__info">
                             <h2 class="element__caption">Домбай</h2>
                             <button class="element__btn-like" type="button"></button>
                         </div>
-                    </div>
-                    <div class="element">
+                    </article>
+                    <article class="element">
                         <img class="element__image" src="./images/image-6.png" alt="Место Природы">
                         <div class="element__info">
                             <h2 class="element__caption">Карачаево-Черкессия</h2>
                             <button class="element__btn-like" type="button"></button>
                         </div>
-                    </div>
+                    </article>
             </section>
         </main>
         <footer class="footer">
             <p class="footer__author">&copy; 2023. Mesto Russia</p>
         </footer>
-        <div class="popup popup_edit">
-            <div class="popup__wrapper">
+        <div class="popup">
+            <div class="popup__overlay"></div>
+            <div class="popup__container">
                 <button class="popup__btn-close" type="button" aria-label="закрытие"></button>
                 <h2 class="popup__title">Редактировать профиль</h2>
                 <form class="popup__form" name="Editprofile" novalidate>
-                        <input class="popup__input popup__input_name" id="name" type="text" name="title" placeholder="Имя" minlength="3" maxlength="40" required>
-                        <input class="popup__input popup__input_description" id="description" type="text" name="subtitle" placeholder="О себе" minlength="3" maxlength="200" required>
+                        <input class="popup__input popup__input_item_name" id="name" type="text" name="title" placeholder="Имя" minlength="3" maxlength="40" required>
+                        <input class="popup__input popup__input_item_description" id="description" type="text" name="subtitle" placeholder="О себе" minlength="3" maxlength="200" required>
                         <button class="popup__btn-save" type="submit" title="Сохранить">Сохранить</button>
                 </form>
             </div>

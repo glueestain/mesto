@@ -15,3 +15,16 @@
     padding: 0;
     transition: opacity 0.15s linear;
 }
+
+.popup__btn-save:hover {
+    opacity: 0.6;
+}
+
+@media screen and (max-width:590px) {
+    .popup__btn-save {
+        font-size: 14px;
+        line-height: 17px;
+        height: 46px;
+        width: 238px;
+    }
+}
