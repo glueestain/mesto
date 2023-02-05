@@ -1,32 +1,5 @@
-const initialCards = [
-    {
-        name: 'Архыз',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
-    },
-    {
-        name: 'Челябинская область',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
-    },
-    {
-        name: 'Иваново',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
-    },
-    {
-        name: 'Камчатка',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
-    },
-    {
-        name: 'Холмогорский район',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
-    },
-    {
-        name: 'Байкал',
-        link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
-    }
-];
+import {initialCards,} from "./cards.js";
 
-
-const popups = document.querySelectorAll(".popup");
 
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__description");
@@ -44,9 +17,8 @@ const popupEditForm = popupEdit.querySelector(".popup__form");
 const popupAdd = document.getElementById("popup-add");
 const popupAddForm = document.getElementById("add-form-popup");
 const popupAddButtonClose = document.getElementById("popup-add-btn-close");
-const popupAddButtonCreate = document.getElementById("add-popup-btn-create");
-const popupAddTitle = popupAdd.querySelector(".popup__item_el_title");
-const popupAddLink = popupAdd.querySelector(".popup__item_el_link");
+const popupAddTitle = popupAdd.querySelector(".popup__input_item_title");
+const popupAddLink = popupAdd.querySelector(".popup__input_item_link");
 
 
 const popupPhoto = document.getElementById("popup-photo");
