@@ -1,12 +1,13 @@
 import {initialCards,} from "./cards.js";
 
 
+
 const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__description");
 const buttonEdit = document.querySelector(".profile__edit-button");
 
 const popupEdit = document.querySelector(".popup");
-const popupEditButtonClose = popupEdit.querySelector(".popup__btn-close");
+
 const buttonAdd = document.querySelector(".profile__add-button");
 const popupInputName = popupEdit.querySelector(".popup__input_item_name");
 const popupInputDescription = popupEdit.querySelector(".popup__input_item_description");
@@ -14,9 +15,8 @@ const popupEditForm = popupEdit.querySelector(".popup__form");
 
 
 
-const popupAdd = document.getElementById("popup-add");
-const popupAddForm = document.getElementById("add-form-popup");
-const popupAddButtonClose = document.getElementById("popup-add-btn-close");
+const popupAdd = document.querySelector("#popup-add");
+const popupAddForm = document.querySelector("#add-form-popup");
 const popupAddTitle = popupAdd.querySelector(".popup__input_item_title");
 const popupAddLink = popupAdd.querySelector(".popup__input_item_link");
 
@@ -24,9 +24,11 @@ const popupAddLink = popupAdd.querySelector(".popup__input_item_link");
 const popupPhoto = document.getElementById("popup-photo");
 const popupImage = popupPhoto.querySelector(".popup__image");
 const popupTitle = popupPhoto.querySelector(".popup__title");
-const popupPhotoButtonClose  = document.getElementById("popup-img-btn-close");
 
-const elementsList = document.querySelector(".elements");
+const buttonCloseList = document.querySelectorAll('.popup__btn-close');
+
+
+const elementsContainer = document.querySelector(".elements");
 const elementTemplate = document.querySelector("#element-template").content.querySelector(".element");
 function createCard (item) {
     const card = elementTemplate.cloneNode(true);
@@ -40,7 +42,7 @@ function createCard (item) {
     cardImage.setAttribute("alt", item.name);
     cardTitle.textContent = item.name;
     cardImage.addEventListener("click", function() {
-        imgPopupBigSize(item)
+        openPopupBigImage(item)
     });
     return card;
 };
@@ -54,7 +56,7 @@ const deleteCard = function(e){
 
 initialCards.forEach((item) => {
     const element = createCard(item);
-    elementsList.append(element);
+    elementsContainer.append(element);
 })
 
 
@@ -72,7 +74,7 @@ const closePopup = function (item) {
     item.classList.remove("popup_opened");
 }
 
-function editPopupSubmit(evt) {
+function handleEditPopupSubmit(evt) {
     evt.preventDefault();
     profileName.textContent = popupInputName.value;
     profileJob.textContent = popupInputDescription.value;
@@ -87,14 +89,13 @@ function addPopupCreateSubmit(evt) {
         link: popupAddLink.value
     };
     const element = createCard(card);
-    elementsList.prepend(element);
+    elementsContainer.prepend(element);
     closePopup(popupAdd);
-    popupAddTitle.value = "";
-    popupAddLink.value = "";
+    popupAddForm.reset();
 
 }
 
-const imgPopupBigSize = function (item){
+const openPopupBigImage = function (item){
     popupImage.setAttribute("src", item.link);
     popupImage.setAttribute("alt", item.name);
     popupTitle.textContent = item.name;
@@ -104,28 +105,21 @@ const imgPopupBigSize = function (item){
 
 
 buttonEdit.addEventListener("click", function() {
-    openEditPopup();
     openPopup(popupEdit);
 });
 buttonAdd.addEventListener("click", function() {
     openPopup(popupAdd);
 });
 
-popupEditButtonClose.addEventListener("click", function() {
-    closePopup(popupEdit);
-});
-popupAddButtonClose.addEventListener("click", function() {
-    closePopup(popupAdd);
-});
-
-popupPhotoButtonClose.addEventListener("click", function() {
-    closePopup(popupPhoto);
+buttonCloseList.forEach(btn => {
+    const popup = btn.closest('.popup');
+    btn.addEventListener('click', () => closePopup(popup));
 })
 
 
 
 
-popupEditForm.addEventListener("submit", editPopupSubmit);
+popupEditForm.addEventListener("submit", handleEditPopupSubmit);
 popupAddForm.addEventListener("submit", addPopupCreateSubmit);
 
 

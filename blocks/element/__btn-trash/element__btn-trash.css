@@ -11,6 +11,6 @@
     transition: opacity 0.1s linear;
 }
 
-.element__button-trash:hover{
-    opacity: 0.6;
+.element__btn-trash:hover{
+    opacity: 0.5;
 }
