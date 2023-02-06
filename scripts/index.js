@@ -6,7 +6,7 @@ const profileName = document.querySelector(".profile__name");
 const profileJob = document.querySelector(".profile__description");
 const buttonEdit = document.querySelector(".profile__edit-button");
 
-const popupEdit = document.querySelector(".popup");
+const popupEdit = document.querySelector(".popup_edit");
 
 const buttonAdd = document.querySelector(".profile__add-button");
 const popupInputName = popupEdit.querySelector(".popup__input_item_name");
@@ -15,13 +15,13 @@ const popupEditForm = popupEdit.querySelector(".popup__form");
 
 
 
-const popupAdd = document.querySelector("#popup-add");
-const popupAddForm = document.querySelector("#add-form-popup");
+const popupAdd = document.querySelector(".popup_add");
+const popupAddForm = popupAdd.querySelector(".popup__form");
 const popupAddTitle = popupAdd.querySelector(".popup__input_item_title");
 const popupAddLink = popupAdd.querySelector(".popup__input_item_link");
 
 
-const popupPhoto = document.getElementById("popup-photo");
+const popupPhoto = document.querySelector("#popup-photo");
 const popupImage = popupPhoto.querySelector(".popup__image");
 const popupTitle = popupPhoto.querySelector(".popup__title");
 
@@ -62,11 +62,11 @@ initialCards.forEach((item) => {
 
 const openPopup = function(item){
     item.classList.add("popup_opened");
-    openEditPopup();
 }
 const openEditPopup = function(){
     popupInputName.value = profileName.textContent;
     popupInputDescription.value = profileJob.textContent;
+    openPopup(popupEdit);
 }
 
 
@@ -106,6 +106,7 @@ const openPopupBigImage = function (item){
 
 buttonEdit.addEventListener("click", function() {
     openPopup(popupEdit);
+    openEditPopup();
 });
 buttonAdd.addEventListener("click", function() {
     openPopup(popupAdd);
